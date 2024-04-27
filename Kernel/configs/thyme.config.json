@@ -1,7 +1,7 @@
 [
   {
     "kernelSource": {
-      "name": "k40",
+      "name": "k41",
       "repo": "https://github.com/tequilaOS/platform_kernel_xiaomi_alioth",
       "branch": "tortilla",
       "device": "alioth",
@@ -46,9 +46,9 @@
   },
   {
     "kernelSource": {
-      "name": "k40",
-      "repo": "https://github.com/tequilaOS/platform_kernel_xiaomi_alioth",
-      "branch": "tortilla",
+      "name": "k42",
+      "repo": "https://github.com/raystef66/InfiniR_kernel_alioth",
+      "branch": "14.0-alioth",
       "device": "alioth",
       "defconfig": "/vendor/alioth_defconfig"
     },
@@ -86,11 +86,18 @@
       "release": true,
       "custom": {
         "repo": "https://github.com/easterNday/AnyKernel3/",
-        "branch": "thyme"
+        "branch": "alioth"
       }
     },
     "enableKernelSU": true,
-    "enableLXC": true
+     "kernelSource": {
+      "name": "k43",
+      "repo": "https://github.com/LeviMarvin/android_kernel_xiaomi_alioth",
+      "branch": "tenduo",
+      "device": "alioth",
+      "defconfig": "alioth_defconfig"
+    },
+    "enableCcache": true,
   },
   {
     "toolchains": [
@@ -131,7 +138,7 @@
   },
   {
     "kernelSource": {
-      "name": "Xiaomi10S（Google-Docker）",
+      "name": "k44",
       "repo": "https://github.com/ArrowOS-Devices/android_kernel_xiaomi_alioth",
       "branch": "arrow-12.1",
       "device": "alioth",
