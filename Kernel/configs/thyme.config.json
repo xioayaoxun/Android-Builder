@@ -42,5 +42,6 @@
     "AnyKernel3": {
       "use": true,
       "release": true
+      }
     }
 ]
