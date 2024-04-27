@@ -1,9 +1,76 @@
+#!/bin/bash
+
+starttime=`date +'%Y-%m-%d %H:%M:%S'`
+
+export ARCH=arm64
+
+export SUBARCH=arm64
+
+MPATH="/root/clang+llvm-14.0.2-aarch64-linux-gnu/bin:$PATH"
+
+make O=out alioth_defconfig
+
+PATH="$MPATH" make -j16 O=out \
+
+    NM=llvm-nm \
+
+    OBJCOPY=llvm-objcopy \
+
+    LD=ld.lld \
+
+        CROSS_COMPILE=aarch64-linux-gnu- \
+
+        CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
+
+        CC=clang \
+
+        AR=llvm-ar \
+
+        OBJDUMP=llvm-objdump \
+
+        STRIP=llvm-strip
+
+        2>&1 | tee error.log
+
+endtime=`date +'%Y-%m-%d %H:%M:%S'`
+
+start_seconds=$(date --date=" $starttime" +%s);
+
+end_seconds=$(date --date="$endtime" +%s);
+
+echo Start: $starttime.
+
+echo End: $endtime.
+
+echo "Build Time: "$((end_seconds-start_seconds))"s." 
+
+这个字符串是Linux内核的版本信息，它详细描述了该特定内核构建的具体属性。以下是各项信息的解析：
+
+Linux version 4.19.311： 这表示使用的Linux内核主版本为4.19，次版本号为311，表明这是基于Linux 4.19系列的一个维护分支版本。
+
+~InfiniR_Alioth_v2.91： 这是一个定制标记，表示该内核版本针对特定设备或项目进行了调整和优化，此处可能是为名为"InfiniR_Alioth"的设备或平台定制，并且是其v2.91版本。
+
+//beb2772f4e75： 这通常是Git commit hash的一部分，用于标识内核源码树中此次构建所基于的特定提交版本。
+
+(raystef66@Private-Server)： 表示此内核是由用户名为"raystef66"的用户在"Private-Server"上编译构建的。
+
+(Android (8148192, based on r445002)： 指明该内核是为了一个基于特定Android版本（8148192）编译的，该Android版本可能基于Chromium OS或其他项目的commit ID r445002进行修改或合并。
+
+clang version 14.0.2： 表示用于编译内核的Clang编译器版本为14.0.2。
+
+https://android.googlesource.com/toolchain/llvm-project ae8d7d1dee3175cbfe3887834135abee1dcfcb68： 提供了LLVM项目的源代码仓库地址及对应的commit hash（ae8d7d1dee3175cbfe3887834135abee1dcfcb68），说明编译工具链来自于该特定版本的LLVM项目。
+
+GNU ld (binutils-2.27-bd24d23f) 2.27.0.20170315： 指出连接器（ld）版本为GNU binutils的2.27版，带有一个特殊的修订版本“bd24d23f”，日期为2017年3月15日，该连接器用于链接生成最终的内核二进制文件。
+
+#1 SMP PREEMPT Sat Mar 30 11:15:02 CET 2024： 表示这是第一个系统映像（SMP表示支持多处理器环境，PREEMPT指预emption模式，即支持实时性改进的内核），并且该内核编译完成的时间是欧洲中部时间2024年3月30日星期六上午11点15分
+
+
 [
   {
     "kernelSource": {
       "name": "k41",
-      "repo": "https://github.com/tequilaOS/platform_kernel_xiaomi_alioth",
-      "branch": "tortilla",
+      "repo": "https://github.com/xioayaoxun/InfiniR_kernel_alioth",
+      "branch": "14.0-alioth",
       "device": "alioth",
       "defconfig": "/vendor/alioth_defconfig"
     },
@@ -42,6 +109,157 @@
     "AnyKernel3": {
       "use": true,
       "release": true
+    },
+ 
+  {
+    "kernelSource": {
+      "name": "k42",
+      "repo": "https://github.com/xioayaoxun/platform_kernel_xiaomi_alioth",
+      "branch": "contribute",
+      "device": "alioth",
+      "defconfig": "/vendor/alioth_defconfig"
+    },
+    "enableCcache": true,
+    "enableKernelSU": true,
+    "enableLXC": true,
+  "toolchains": [
+      {
+        "repo": "https://github.com/kdrag0n/proton-clang",
+        "branch": "master",
+        "name": "proton-clang",
+        "binaryEnv": [
+          "bin"
+        ]
+      }
+    ],
+    "params": {
+      "ARCH": "arm64",
+      "CC": "proton-clang/bin/clang",
+      "externalCommands": {
+        "CROSS_COMPILE": "proton-clang/bin/aarch64-linux-gnu-",
+        "CROSS_COMPILE_ARM32": "proton-clang/bin/arm-linux-gnueabi-",
+        "LD": "proton-clang/bin/ld.lld",
+        "AR": "proton-clang/bin/llvm-ar",
+        "NM": "proton-clang/bin/llvm-nm",
+        "OBJCOPY": "proton-clang/bin/llvm-objcopy",
+        "OBJDUMP": "proton-clang/bin/llvm-objdump",
+        "READELF": "proton-clang/bin/llvm-readelf",
+        "OBJSIZE": "proton-clang/bin/llvm-size",
+        "STRIP": "proton-clang/bin/llvm-strip",
+        "LDGOLD": "proton-clang/bin/aarch64-linux-gnu-ld.gold",
+        "LLVM_AR": "proton-clang/bin/llvm-ar",
+        "LLVM_DIS": "proton-clang/bin/llvm-dis"
+      }
+    },
+    "AnyKernel3": {
+      "use": true,
+      "release": true,
+      "custom": {
+        "repo": "https://github.com/easterNday/AnyKernel3/",
+        "branch": "alioth"
+      }
+    },
+    
+     "kernelSource": {
+      "name": "k43",
+      "repo": "https://github.com/LeviMarvin/android_kernel_xiaomi_alioth",
+      "branch": "tenduo",
+      "device": "alioth",
+      "defconfig": "alioth_defconfig"
+    },
+    "enableCcache": true,
+    "enableKernelSU": true,
+    "enableLXC": true,
+  },
+  
+    "toolchains": [
+      {
+        "repo": "https://github.com/kdrag0n/proton-clang",
+        "branch": "master",
+        "name": "proton-clang",
+        "binaryEnv": [
+          "bin"
+        ]
+      }
+    ],
+    "params": {
+      "ARCH": "arm64",
+      "CC": "proton-clang/bin/clang",
+      "externalCommands": {
+        "CROSS_COMPILE": "proton-clang/bin/aarch64-linux-gnu-",
+        "CROSS_COMPILE_ARM32": "proton-clang/bin/arm-linux-gnueabi-",
+        "LD": "proton-clang/bin/ld.lld",
+        "AR": "proton-clang/bin/llvm-ar",
+        "NM": "proton-clang/bin/llvm-nm",
+        "OBJCOPY": "proton-clang/bin/llvm-objcopy",
+        "OBJDUMP": "proton-clang/bin/llvm-objdump",
+        "READELF": "proton-clang/bin/llvm-readelf",
+        "OBJSIZE": "proton-clang/bin/llvm-size",
+        "STRIP": "proton-clang/bin/llvm-strip",
+        "LDGOLD": "proton-clang/bin/aarch64-linux-gnu-ld.gold",
+        "LLVM_AR": "proton-clang/bin/llvm-ar",
+        "LLVM_DIS": "proton-clang/bin/llvm-dis"
+      }
+    },
+    "AnyKernel3": {
+      "use": true,
+      "release": true
+    },
+ 
+  },
+  {
+    "kernelSource": {
+      "name": "k44",
+      "repo": "https://github.com/ArrowOS-Devices/android_kernel_xiaomi_alioth",
+      "branch": "arrow-12.1",
+      "device": "alioth",
+      "defconfig": "alioth_defconfig"
+    },
+    "enableCcache": true,
+    "enableKernelSU": true,
+    "enableLXC": true,
+    "toolchains": [
+      {
+        "repo": "https://github.com/kdrag0n/proton-clang",
+        "branch": "master",
+        "name": "proton-clang",
+        "binaryEnv": [
+          "bin"
+        ]
+      }
+    ],
+    "params": {
+      "ARCH": "arm64",
+      "CC": "proton-clang/bin/clang",
+      "externalCommands": {
+        "CROSS_COMPILE": "proton-clang/bin/aarch64-linux-gnu-",
+        "CROSS_COMPILE_ARM32": "proton-clang/bin/arm-linux-gnueabi-",
+        "LD": "proton-clang/bin/ld.lld",
+        "AR": "proton-clang/bin/llvm-ar",
+        "NM": "proton-clang/bin/llvm-nm",
+        "OBJCOPY": "proton-clang/bin/llvm-objcopy",
+        "OBJDUMP": "proton-clang/bin/llvm-objdump",
+        "READELF": "proton-clang/bin/llvm-readelf",
+        "OBJSIZE": "proton-clang/bin/llvm-size",
+        "STRIP": "proton-clang/bin/llvm-strip",
+        "LDGOLD": "proton-clang/bin/aarch64-linux-gnu-ld.gold",
+        "LLVM_AR": "proton-clang/bin/llvm-ar",
+        "LLVM_DIS": "proton-clang/bin/llvm-dis"
+      }
+    },
+    "AnyKernel3": {
+      "use": true,
+      "release": true,
+      "custom": {
+        "repo": "https://github.com/easterNday/AnyKernel3/",
+        "branch": "alioth"
       }
     }
+   
 ]
+
+
+
+
+
+
