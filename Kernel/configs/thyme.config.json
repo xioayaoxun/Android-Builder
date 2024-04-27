@@ -8,6 +8,8 @@
       "defconfig": "/vendor/alioth_defconfig"
     },
     "enableCcache": true,
+    "enableKernelSU": true,
+    "enableLXC": true
     "toolchains": [
       {
         "repo": "https://github.com/kdrag0n/proton-clang",
@@ -41,9 +43,7 @@
       "use": true,
       "release": true
     },
-    "enableKernelSU": true,
-    "enableLXC": true
-  },
+ 
   {
     "kernelSource": {
       "name": "k42",
@@ -52,6 +52,9 @@
       "device": "alioth",
       "defconfig": "/vendor/alioth_defconfig"
     },
+    "enableCcache": true,
+    "enableKernelSU": true,
+    "enableLXC": true
   "toolchains": [
       {
         "repo": "https://github.com/kdrag0n/proton-clang",
@@ -89,7 +92,7 @@
         "branch": "alioth"
       }
     },
-    "enableKernelSU": true,
+    
      "kernelSource": {
       "name": "k43",
       "repo": "https://github.com/LeviMarvin/android_kernel_xiaomi_alioth",
@@ -98,6 +101,8 @@
       "defconfig": "alioth_defconfig"
     },
     "enableCcache": true,
+    "enableKernelSU": true,
+    "enableLXC": true
   },
   
     "toolchains": [
@@ -133,8 +138,7 @@
       "use": true,
       "release": true
     },
-    "enableKernelSU": true,
-    "enableLXC": false
+ 
   },
   {
     "kernelSource": {
@@ -144,6 +148,9 @@
       "device": "alioth",
       "defconfig": "alioth_defconfig"
     },
+    "enableCcache": true,
+    "enableKernelSU": true,
+    "enableLXC": true
     "toolchains": [
       {
         "repo": "https://github.com/kdrag0n/proton-clang",
@@ -181,7 +188,5 @@
         "branch": "alioth"
       }
     },
-    "enableKernelSU": true,
-    "enableLXC": true
-  }
+   
 ]
