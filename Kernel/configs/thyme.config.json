@@ -40,12 +40,9 @@
         "LLVM_DIS": "proton-clang/bin/llvm-dis"
       }
     },
-    "AnyKernel3": {
+ "AnyKernel3": {
       "use": true,
-      "release": true,
-      "custom": {
-        "repo": "https://github.com/easterNday/AnyKernel3/",
-        "branch": "alioth"}
+      "release": true
     }
     }
    
