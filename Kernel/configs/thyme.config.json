@@ -2,7 +2,7 @@
   {
      "kernelSource": {
       "name": "k42",
-      "repo": "https://github.com/xioayaoxun/platform_kernel_xiaomi_alioth",
+      "repo": "https://github.com/tequilaOS/platform_kernel_xiaomi_alioth",
       "branch": "tortilla",
       "device": "alioth",
       "defconfig": "/vendor/alioth_defconfig"
