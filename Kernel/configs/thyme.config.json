@@ -1,11 +1,11 @@
 [
   {
     "kernelSource": {
-      "name": "Xiaomi10S（Proton）",
-      "repo": "https://codeberg.org/DogDayAndroid/android_kernel_xiaomi_thyme",
-      "branch": "lineage-20.0",
-      "device": "thyme",
-      "defconfig": "thyme_defconfig"
+      "name": "k40",
+      "repo": "https://github.com/tequilaOS/platform_kernel_xiaomi_alioth",
+      "branch": "tortilla",
+      "device": "alioth",
+      "defconfig": "/vendor/alioth_defconfig"
     },
     "enableCcache": true,
     "toolchains": [
@@ -46,11 +46,11 @@
   },
   {
     "kernelSource": {
-      "name": "Xiaomi10S（Google）",
-      "repo": "https://codeberg.org/DogDayAndroid/android_kernel_xiaomi_thyme",
-      "branch": "lineage-20.0",
-      "device": "thyme",
-      "defconfig": "thyme_defconfig"
+      "name": "k40",
+      "repo": "https://github.com/tequilaOS/platform_kernel_xiaomi_alioth",
+      "branch": "tortilla",
+      "device": "alioth",
+      "defconfig": "/vendor/alioth_defconfig"
     },
     "toolchains": [
       {
@@ -88,15 +88,15 @@
       }
     },
     "enableKernelSU": true,
-    "enableLXC": false
+    "enableLXC": true
   },
   {
     "kernelSource": {
-      "name": "Xiaomi10S（Utsav）",
-      "repo": "https://github.com/UtsavBalar1231/kernel_xiaomi_sm8250",
-      "branch": "android13-stable",
-      "device": "thyme",
-      "defconfig": "thyme_defconfig"
+      "name": "k40",
+      "repo": "https://github.com/LeviMarvin/android_kernel_xiaomi_alioth",
+      "branch": "tenduo",
+      "device": "alioth",
+      "defconfig": "alioth_defconfig"
     },
     "enableCcache": true,
     "toolchains": [
@@ -156,10 +156,10 @@
   {
     "kernelSource": {
       "name": "Xiaomi10S（Google-Docker）",
-      "repo": "https://codeberg.org/DogDayAndroid/android_kernel_xiaomi_thyme",
-      "branch": "lineage-20.0",
-      "device": "thyme",
-      "defconfig": "thyme_defconfig"
+      "repo": "https://github.com/ArrowOS-Devices/android_kernel_xiaomi_alioth",
+      "branch": "arrow-12.1",
+      "device": "alioth",
+      "defconfig": "alioth_defconfig"
     },
     "toolchains": [
       {
@@ -193,7 +193,7 @@
       "release": true,
       "custom": {
         "repo": "https://github.com/easterNday/AnyKernel3/",
-        "branch": "thyme"
+        "branch": "alioth"
       }
     },
     "enableKernelSU": true,
