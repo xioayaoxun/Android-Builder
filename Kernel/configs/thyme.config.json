@@ -44,7 +44,7 @@
       "release": true
     },
  
-  {
+
     "kernelSource": {
       "name": "k42",
       "repo": "https://github.com/xioayaoxun/platform_kernel_xiaomi_alioth",
@@ -140,7 +140,7 @@
     },
  
 
-  {
+  
     "kernelSource": {
       "name": "k44",
       "repo": "https://github.com/ArrowOS-Devices/android_kernel_xiaomi_alioth",
