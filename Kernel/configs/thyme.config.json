@@ -1,11 +1,12 @@
 [
   {
-    "kernelSource": {
-      "name": "k41",
-      "repo": "https://github.com/xioayaoxun/InfiniR_kernel_alioth",
-      "branch": "14.0-alioth",
+     "kernelSource": {
+      "name": "k42",
+      "repo": "https://github.com/xioayaoxun/platform_kernel_xiaomi_alioth",
+      "branch": "contribute",
       "device": "alioth",
       "defconfig": "/vendor/alioth_defconfig"
+
     },
     "enableCcache": true,
     "enableKernelSU": true,
