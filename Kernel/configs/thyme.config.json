@@ -9,7 +9,7 @@
     },
     "enableCcache": true,
     "enableKernelSU": true,
-    "enableLXC": true
+    "enableLXC": true,
     "toolchains": [
       {
         "repo": "https://github.com/kdrag0n/proton-clang",
