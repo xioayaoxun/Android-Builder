@@ -1,9 +1,9 @@
 [
   {
     "kernelSource": {
-      "name": "k43",
-      "repo": "https://github.com/LeviMarvin/android_kernel_xiaomi_alioth",
-      "branch": "tenduo",
+      "name": "k44",
+      "repo": "https://github.com/ArrowOS-Devices/android_kernel_xiaomi_alioth",
+      "branch": "arrow-12.1",
       "device": "alioth",
       "defconfig": "alioth_defconfig"
 
