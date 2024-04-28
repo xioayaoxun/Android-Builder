@@ -1,11 +1,12 @@
 [
   {
-     "kernelSource": {
-      "name": "k42",
-      "repo": "https://github.com/tequilaOS/platform_kernel_xiaomi_alioth",
-      "branch": "tortilla",
+    "kernelSource": {
+      "name": "k43",
+      "repo": "https://github.com/LeviMarvin/android_kernel_xiaomi_alioth",
+      "branch": "tenduo",
       "device": "alioth",
-      "defconfig": "/vendor/alioth_defconfig"
+      "defconfig": "alioth_defconfig"
+
 
     },
     "enableCcache": true,
